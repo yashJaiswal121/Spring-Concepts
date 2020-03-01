@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+     
+     <!-- Dependency bean -->
+     <bean id="injectableDependency" class="luv2code_DI.GetFortuneDICoach"></bean>
+     
+     <!-- 1.Beans injecting dependencies by constructor[See how Spring process config xml in Video] -->
+     <!-- Calls Param Constructor only[See how Spring process config xml in Video]   -->
+    <bean id="coachIdCricket" class="luv2code_DI.CricketCoach">
+    <constructor-arg ref="injectableDependency"></constructor-arg>
+    </bean>
+          <!-- Calls Param Constructor only[See how Spring process config xml in Video]  -->
+     <bean id="coachIdBaseball" class="luv2code_DI.BaseballCoach">
+         <constructor-arg ref="injectableDependency"></constructor-arg>
+     </bean>
+     
+     
+      <!-- 2.Beans injecting dependencies by Setter -->
+      <!-- Calls Default Constructor[See how Spring process config xml in Video] -->
+    <!-- name is set to 'fortuneService' as in CricketCoach class setter name used for it is setFortuneService(),,so remove 'set' from that and make 'F' to 'f'  -->
+    <bean id="coachIdCricketSetter" class="luv2code_DI.CricketCoach">
+    <property name="fortuneService" ref="injectableDependency"></property>
+    </bean>
+           <!-- Calls Default Constructor[See how Spring process config xml] -->
+     <bean id="coachIdBaseballSetter" class="luv2code_DI.BaseballCoach">
+         <property name="fortuneService" ref="injectableDependency"></property>
+     </bean>
+     
+     <!-- 3.Injecting Literal Dependencies -->
+      <bean id="coachIdCricketInjLit" class="luv2code_DI.CricketCoach">
+    <property name="fortuneService" ref="injectableDependency"></property>
+        <property name="emailAddr" value="yash.jaiswal121@gmail.com"></property>
+    </bean>
+     
+     
+</beans> 
