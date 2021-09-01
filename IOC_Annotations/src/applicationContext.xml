@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+     
+     <!--  
+     <beans>
+     
+     <bean id="basketball" class="com.javaAnnotationsIOC.demo.BasketBall"></bean>
+     <bean id="basketballCoach" class="com.javaAnnotationsIOC.demo.BasketBallCoach">
+     	<constructor-arg ref="basketball"></constructor-arg>
+     </bean>
+     <bean id="tableTennis" class="com.javaAnnotationsIOC.demo.TableTennis"></bean>
+     <bean id="tableTennisCoach" class="com.javaAnnotationsIOC.demo.TableTennisCoach">
+     	<constructor-arg ref="tableTennis"></constructor-arg>
+     </bean>
+     
+     </beans>     
+     -->
+     <!--Step1: Enable Component Scanning for Annotated Beans @Component/@Service..etc -->
+     <context:component-scan base-package="com.javaAnnotationsIOC.demo,com.javaAnnotationsIOC.FilePropertiesDemo"></context:component-scan>
+     
+     
+     <!-- Injecting field/property values by annotations: See FilePropertyInjector.java -->
+     <context:property-placeholder location="classpath:demoProperty.properties"/>
+     
+</beans> 
