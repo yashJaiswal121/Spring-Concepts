@@ -22,6 +22,7 @@
      
       <!-- 2.Beans injecting dependencies by Setter -->
       <!-- Calls Default Constructor[See how Spring process config xml in Video] -->
+    <!-- name is set to 'fortuneService' as in CricketCoach class setter name used for it is setFortuneService(),,so remove 'set' from that and make 'F' to 'f'  -->
     <bean id="coachIdCricketSetter" class="luv2code_DI.CricketCoach">
     <property name="fortuneService" ref="injectableDependency"></property>
     </bean>
